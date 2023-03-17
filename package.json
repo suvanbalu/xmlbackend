@@ -1,0 +1,19 @@
+{
+  "name": "xmlbackend",
+  "version": "1.0.0",
+  "description": "Xml backend webservice for catering services",
+  "main": "server.js",
+  "repository": "https://github.com/suvanbalu/xmlbackend.git",
+  "author": "teamXML",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2",
+    "nodemon": "^2.0.21",
+    "validator": "^13.9.0"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  }
+}
