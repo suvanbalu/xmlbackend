@@ -30,7 +30,7 @@ const schema = new Schema({
   c_insta:{
     type: String,
   },
-  c_fb:{
+  c_fb:{  
     type: String,
   },
   c_maps:{

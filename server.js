@@ -1,28 +1,35 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const app = express();
-const bodyParser = require("body-parser");
-const User = require("./models/User");
-app.use(cors());
+const auth = require("./routes/Ashwin");
+
+const express = require("express");   //Backend framework express
+const cors = require("cors");  // Cross origin resource sharing 
+const mongoose = require("mongoose"); //MongoDB ODM - Object Data Model
+const app = express(); // Instance of express
+const bodyParser = require("body-parser"); 
+const User = require("./models/User"); //importing the user schema (DB)
+app.use(cors()); 
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT||3002;
+const PORT = process.env.PORT||3002;  //Port number is 3002
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     }
 );
 
+app.use("/auth",auth)
+
+//We use this string to Connect with cloud (MongoDB Atlas). 
 const connectionString =
   "mongodb+srv://suvan:yk8aSW26njv.LZ-@cluster0.ldaw2fl.mongodb.net/?retryWrites=true&w=majority";
 
+
+//Connecting to MongoDB with a function called "connect"
 const connect = (callBack) => {
-    mongoose.set("strictQuery", false);
-    mongoose
+    // mongoose.set("strictQuery", false); 
+    mongoose  //Connecting mongoDB and JS
       .connect(connectionString, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+        useNewUrlParser: true, // default syntax for connecting the backend
+        useUnifiedTopology: true, 
       })
       .then(() => {
         console.log("Connected to MongoDB");
@@ -41,8 +48,20 @@ connect((err) => {
     }
 });
 
+
+// Get
 app.get("/", (req, res) => {
     res.send("XML backend service");
 });
+
+app.post("/", (req,res) => {
+  const text = req.body.text;
+  try{
+    res.send(text);
+  }
+  catch(err){
+    res.status(400).send(err.body);
+  }
+})
 
 
