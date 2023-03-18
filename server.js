@@ -1,6 +1,7 @@
 const auth = require("./routes/Ashwin");
 const bid = require("./routes/Suvan");
 const cpost = require("./routes/Nithiin");
+const upost = require("./routes/Shivesh");
 
 const express = require("express");   //Backend framework express
 const cors = require("cors");  // Cross origin resource sharing 
@@ -21,6 +22,7 @@ app.listen(PORT, () => {
 app.use("/auth",auth)
 app.use("/bid",bid)
 app.use("/cpost",cpost)
+app.use("/upost",upost)
 
 //We use this string to Connect with cloud (MongoDB Atlas). 
 const connectionString =
