@@ -6,8 +6,7 @@ router.get("/", (req,res) => {
     
 });
 
-import {Router} from 'express';
-import Userposts from '../models/Userposts.js';
+
 
 router.get('/', async (req, res) => {
     res.send('Posts API');
