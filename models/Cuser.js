@@ -1,41 +1,41 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const schema = new Schema({
-  c_username:{
+  c_username: {
     type: String,
     unique: true,
   },
-  comp_name :{
+  comp_name: {
     type: String,
   },
 
-  c_email :{
+  c_email: {
     type: String,
   },
-  c_password :{
+  c_password: {
     type: String,
   },
-  c_phone :{
+  c_phone: {
     type: String,
   },
-  c_address :{
+  c_address: {
     type: String,
   },
-  c_rating:{
+  c_rating: {
     type: Number,
   },
-  c_specials:{
-      type: Array,
-},
-  c_insta:{
+  c_specials: {
+    type: Array,
+  },
+  c_insta: {
     type: String,
   },
-  c_fb:{  
+  c_fb: {
     type: String,
   },
-  c_maps:{
+  c_maps: {
     type: String,
-  }
-})
+  },
+});
 
-module.exports = model('Cuser', schema)
+module.exports = model("Cuser", schema);
