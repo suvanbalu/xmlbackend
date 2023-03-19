@@ -1,13 +1,16 @@
-# XML - Team 3
+# Team 4 - XML Presentation
 
-step 1:
+Caterbid backend using Thunder Client.
 
+## Installation
+Step 1: 
+
+```bash
 yarn install
+```
 
+Step 2: 
 
-step 2:
-
+```bash
 yarn dev
-
-
-
+```
