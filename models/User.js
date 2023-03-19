@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const validator = require("validator");
 
 const schema = new Schema({
   firstname: {
@@ -23,6 +24,11 @@ const schema = new Schema({
   password: {
     type: String,
     required: true,
+    validate(value) {
+      if (value.length < 6) {
+        throw new Error("Password is invalid");
+      }
+    }
   },
   phone: {
     type: String,
@@ -30,6 +36,7 @@ const schema = new Schema({
   },
   username: {
     type: String,
+    required: true,
   },
 });
 

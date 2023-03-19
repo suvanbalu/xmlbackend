@@ -4,9 +4,6 @@ const bid = require("./routes/Suvan");
 const cpost = require("./routes/Nithiin");
 const upost = require("./routes/Shivesh");
 
-const cpost = require("./routes/Nithiin");
-const upost = require("./routes/Shivesh");
-
 const express = require("express"); //Backend framework express
 const cors = require("cors"); // Cross origin resource sharing
 const mongoose = require("mongoose"); //MongoDB ODM - Object Data Model
