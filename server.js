@@ -1,4 +1,5 @@
 const auth = require("./routes/Ashwin");
+const vpost = require("./routes/Shifa");
 const bid = require("./routes/Suvan");
 const cpost = require("./routes/Nithiin");
 const upost = require("./routes/Shivesh");
@@ -21,6 +22,8 @@ app.listen(PORT, () => {
 );
 
 app.use("/auth",auth)
+app.use("/vpost",vpost)
+
 app.use("/bid",bid)
 app.use("/cpost",cpost)
 app.use("/upost",upost)
