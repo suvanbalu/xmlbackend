@@ -9,6 +9,7 @@ const cors = require("cors");  // Cross origin resource sharing
 const mongoose = require("mongoose"); //MongoDB ODM - Object Data Model
 const app = express(); // Instance of express
 const bodyParser = require("body-parser"); 
+const connect = require("./mongo/conn"); //importing the connection file
 const User = require("./models/User"); //importing the user schema (DB)
 app.use(cors()); 
 app.use(bodyParser.json());
@@ -27,28 +28,8 @@ app.use("/bid",bid)
 app.use("/cpost",cpost)
 app.use("/upost",upost)
 
-//We use this string to Connect with cloud (MongoDB Atlas). 
-const connectionString =
-  "mongodb+srv://suvan:yk8aSW26njv.LZ-@cluster0.ldaw2fl.mongodb.net/?retryWrites=true&w=majority";
-
 
 //Connecting to MongoDB with a function called "connect"
-const connect = (callBack) => {
-    // mongoose.set("strictQuery", false); 
-    mongoose  //Connecting mongoDB and JS
-      .connect(connectionString, {
-        useNewUrlParser: true, // default syntax for connecting the backend
-        useUnifiedTopology: true, 
-      })
-      .then(() => {
-        console.log("Connected to MongoDB");
-      })
-      .catch((err) => {
-        console.log(err);
-        return callBack(err);
-      });
-  };
-
 connect((err) => {
     if (err) {
       console.log("Error connecting to MongoDB");
