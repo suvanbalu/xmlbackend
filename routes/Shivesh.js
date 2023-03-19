@@ -3,13 +3,30 @@ const User = require("../models/User");
 const router = express.Router();
 const Userposts = require("../models/Userposts");
 
-router.patch("/update/:postId", async (req, res) => {
-    const { postId } = req.params;
-    const post = await Userposts.findOneAndUpdate({ post_id: postId },{...post, ...req.body}, {new: false});
-    if (!post) {
-        return res.status(404).json({ msg: "Post not found" });
-    }
-    res.json(post);
-})
+router.get("/view/:post_id", async (req, res) => {
+  const { post_id } = req.params;
+
+  // return the post
+  const post = await Userposts.findOne({ post_id: post_id });
+  res.json(post);
+});
+
+router.patch("/update/:post_id", async (req, res) => {
+  const { post_id } = req.params;
+
+  // Modify the post
+  const post = await Userposts.findOneAndUpdate(
+    { post_id: post_id },
+    req.body,
+    { new: false }
+  );
+
+  if (!post) {
+    return res.status(404).json({ msg: "Post not found" });
+  }
+  res.status(200).json({ msg: "Post updated" });
+});
+
+module.exports = router;
 
 module.exports = router;
