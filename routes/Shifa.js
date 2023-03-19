@@ -6,7 +6,6 @@ router.get("/", (req,res) => {
     
 });
 
-module.exports = router;
 import {Router} from 'express';
 import Userposts from '../models/Userposts.js';
 
