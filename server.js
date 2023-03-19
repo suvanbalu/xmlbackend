@@ -1,5 +1,5 @@
 const auth = require("./routes/Ashwin");
-
+const vpost = require("./routes/Shifa");
 const express = require("express");   //Backend framework express
 const cors = require("cors");  // Cross origin resource sharing 
 const mongoose = require("mongoose"); //MongoDB ODM - Object Data Model
@@ -17,6 +17,8 @@ app.listen(PORT, () => {
 );
 
 app.use("/auth",auth)
+app.use("/vpost",vpost)
+
 
 //We use this string to Connect with cloud (MongoDB Atlas). 
 const connectionString =
